@@ -1,3 +1,3 @@
 # learning
 Java course
-Nothind interesting here
+Nothing interesting here
