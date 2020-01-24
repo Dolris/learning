@@ -14,13 +14,12 @@ public class Task32 {
         4. Запустите приложение на исполнение.
          */
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter deposit amount (integer): ");
-        Integer amt = Integer.parseInt(sc.nextLine());
+        System.out.print("Enter deposit amount (UAH): ");
+        double amt = Double.parseDouble(sc.nextLine());
         System.out.print("Enter deposit term (months): ");
         Integer term = Integer.parseInt(sc.nextLine());
-        double brutto = (double)amt * (0.12 * term/12);
+        double brutto = amt * (0.12 * term/12);
         System.out.println("Brutto profit amount (before tax): " + ((double)Math.round(100*brutto)/100));
         System.out.println("Net profit amount (after tax): " + ((double)Math.round(100*brutto * 0.805)/100));
-
     }
 }

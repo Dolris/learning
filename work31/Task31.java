@@ -13,7 +13,7 @@ public class Task31 {
         килограмм и грамм (в 1 фунте 453,6 грамм).
         4. Запустите приложение на исполнение.*/
         Scanner sc = new Scanner(System.in);
-        double grams = 453.6 * Integer.parseInt(sc.nextLine());
+        double grams = 453.6 * Double.parseDouble(sc.nextLine());
         System.out.println("It's " + (int)(grams/1000.0) + " kilograms and " +
                 (grams - 1000*(int)(grams/1000.0)) + " grams");
     }
