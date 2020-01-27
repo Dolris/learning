@@ -22,12 +22,26 @@ public class Task45 {
         9 | 9 18 27 36 45 54 63 72 81
         4. Запустите приложение на исполнение.
          */
-        int c = 0;
-        int r = 0;
+        int c = 1;
+        int r = 1;
+        // header
+        System.out.print("* | ");
+        while (c < 10) {
+            System.out.print(c + "   ");
+            c++;
+        }
+        c = 0;
+        System.out.println("");
+        System.out.println("--------------------------------------");
         while (r < 10) {
-            if (c == 0 && r == 0) System.out.print("* ");
-            if (c == 0) System.out.print("| ");
-            
+            while (c < 10) {
+                if (c == 0) System.out.print(r + " | ");
+                else System.out.print(r * c + "  ");
+                c++;
+            }
+            System.out.println("");
+            c = 0;
+            r++;
         }
     }
 }
