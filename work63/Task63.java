@@ -17,17 +17,17 @@ public class Task63 {
         System.out.print("Enter String: ");
         String str = sc.nextLine();
         System.out.print("Enter word number: ");
-        System.out.println(">>> " + getFirstCharacterOfWord(str, sc.nextInt()));
+        System.out.println(">>> " + getFirstCharacterOfWord(str.trim(), sc.nextInt()));
     }
     public static char getFirstCharacterOfWord(String str, int numberWord) {
+        if (str.equals("") || numberWord < 1) {return ' ';};
         if (numberWord == 1) return str.charAt(0);
         else {
             int foundedWords = 0, idx = 0;
             while (foundedWords < numberWord - 1) {
-                System.out.println(idx);
                 if (str.indexOf(' ', idx + 1) < idx) return ' ';
                 idx = str.indexOf(' ', idx + 1);
-                foundedWords++;
+                if (str.charAt(idx+1) != ' ') {foundedWords++;}
             }
             return str.charAt(idx + 1);
         }
