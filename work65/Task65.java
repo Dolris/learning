@@ -23,6 +23,10 @@ public class Task65 {
         printPyramid(sc.nextInt());
     }
     public static void printPyramid(int height) {
+        if (height < 1 || height > 9) {
+            System.out.println("Wrong height");
+            return;
+        }
         for (int row = 1; row <= height; row++) {
             // spaces
             for (int i = 0; i < height - row; i++) {
