@@ -41,9 +41,9 @@ public class Task65 {
                 System.out.print(i);
             }
             // spaces
-            for (int i = 0; i < height - row; i++) {
-                System.out.print(" ");
-            }
+            //for (int i = 0; i < height - row; i++) {
+            //    System.out.print(" ");
+            //}
             System.out.println("");
         }
     }
