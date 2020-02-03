@@ -18,6 +18,12 @@ public class Task64 {
         System.out.println("Result is: " + convertDecimalToBinary(sc.nextInt()));
     }
     public static String convertDecimalToBinary(int number) {
-        return Integer.toBinaryString(number);
+        String str = "";
+        System.out.println("For check: " + Integer.toBinaryString(number));
+        while (number > 1) {
+            str = number%2 + str;
+            number = number/2;
+        }
+        return number%2 + str;
     }
 }
