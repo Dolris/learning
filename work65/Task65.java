@@ -33,8 +33,8 @@ public class Task65 {
                 System.out.print(" ");
             }
             // digit asc
-            for (int i = 0; i < row; i++) {
-                System.out.print(i + 1);
+            for (int i = 1; i <= row; i++) {
+                System.out.print(i);
             }
             // digit desc
             for (int i = row - 1; i > 0; i--) {
@@ -43,7 +43,7 @@ public class Task65 {
             // spaces
             //for (int i = 0; i < height - row; i++) {
             //    System.out.print(" ");
-            //}
+        //}
             System.out.println("");
         }
     }
