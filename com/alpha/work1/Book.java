@@ -30,19 +30,18 @@ public class Book {
     }
     public void view() {System.out.println(this);}
     public Book() {
-        this(-1, "", "", "", "", -1, -1);
+        this("", "", "", "", -1, -1);
     }
-    public Book (int id, String name, String author, String issuer, String year, int pages, double price) {
-        this.setId(id);
+    public Book (String name, String author, String issuer, String year, int pages, double price) {
+        this.setId(booksCounter++);
         this.setName(name);
         this.setAuthor(author);
         this.setIssuer(issuer);
         this.setYear(year);
         this.setPages(pages);
         this.setPrice(price);
-        booksCounter++;
     }
     public Book (String name, String author, String issuer, String year, int pages) {
-        this(0, name, author, issuer, year, pages, 0);
+        this(name, author, issuer, year, pages, 0);
     }
 }
