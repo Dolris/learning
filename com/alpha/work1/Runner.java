@@ -39,20 +39,21 @@ public class Runner {
     }
     public void createBookArray(int howMuch) {
         books = new Book[howMuch];
+
         for (int i = 0; i < howMuch; i++) {
             books[i] = new Book( "Book #" + i, "Author #" + i, "Issuer_" + i, "2020", (100 * i + i),
                     200 * i + 10*i + i + (double)i/5);
         }
     }
     public void printBookArray () {
-        for(Book b : books) {b.view();}
+        for(Book b : Book.allBooks) {b.view();}
     }
     public void inflation (double i) {
-        for(Book b : books) {b.setPrice((1 + i/100) * b.getPrice());}
+        for(Book b : Book.allBooks) {b.setPrice((1 + i/100) * b.getPrice());}
     }
     public void printBooksByAuthor(String author) {
         boolean found = false;
-        for(Book b : books) {
+        for(Book b : Book.allBooks) {
             if (b.getAuthor().equals(author)) {
                 found = true;
                 b.view();
@@ -62,7 +63,7 @@ public class Runner {
     }
     public void printBooksByIssuer(String issuer) {
         boolean found = false;
-        for(Book b : books) {
+        for(Book b : Book.allBooks) {
             if (b.getIssuer().equals(issuer)) {
                 found = true;
                 b.view();
@@ -72,7 +73,7 @@ public class Runner {
     }
     public void printBooksIssuedAfter(int year) {
         boolean found = false;
-        for(Book b : books) {
+        for(Book b : Book.allBooks) {
             if (Integer.parseInt(b.getYear()) > year) {
                 found = true;
                 b.view();

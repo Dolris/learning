@@ -1,5 +1,7 @@
 package com.alpha.work1;
 
+import java.util.ArrayList;
+
 public class Book {
     private Integer id;
     private String name;
@@ -10,6 +12,7 @@ public class Book {
     private Double price;
     private static int booksCounter = 0;
     public static int getBooksCounter() {return booksCounter;}
+    public static ArrayList<Book> allBooks = new ArrayList<>();
     public void setId(Integer id) {this.id = id;}
     public void setName(String name) {this.name = name;}
     public void setAuthor(String author) {this.author = author;}
@@ -40,6 +43,7 @@ public class Book {
         this.setYear(year);
         this.setPages(pages);
         this.setPrice(price);
+        allBooks.add(this);
     }
     public Book (String name, String author, String issuer, String year, int pages) {
         this(name, author, issuer, year, pages, 0);
