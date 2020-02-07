@@ -1,21 +1,21 @@
 package com.alpha.work1;
 
 public class Book {
-    private Integer ID;
+    private Integer id;
     private String name;
     private String author;
     private String issuer;
     private String year;
     private Integer pages;
     private Double price;
-    public void setId(Integer id) {this.ID = id;}
+    public void setId(Integer id) {this.id = id;}
     public void setName(String name) {this.name = name;}
     public void setAuthor(String author) {this.author = author;}
     public void setIssuer(String issuer) {this.issuer = issuer;}
     public void setYear(String year) {this.year = year;}
     public void setPages(Integer pages) {this.pages = pages;}
     public void setPrice(Double price) {this.price = price;}
-    public Integer getId() {return this.ID;}
+    public Integer getId() {return this.id;}
     public String getName() {return this.name;}
     public String getAuthor() {return this.author;}
     public String getIssuer() {return this.issuer;}
@@ -24,7 +24,7 @@ public class Book {
     public Double getPrice() {return this.price;}
     public String toString() {
         return "Book #" + getId() + " '" + getName() + "' of '" + getAuthor() + "' issued by '" + getIssuer() +
-                "' in " + getYear() + ", " + getPages() + " pages, price is " + getPrice();
+                "' in " + getYear() + ", " + getPages() + " pages, price is " +  String.format("%.2f%n", this.price);
     }
     public void view() {System.out.println(this);}
     public Book() {this(-1, "", "", "", "", -1, -1);}

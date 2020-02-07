@@ -2,7 +2,10 @@ package com.alpha.work1;
 
 import com.sun.istack.internal.NotNull;
 
+import java.util.Scanner;
+
 public class Runner {
+    public Book[] books;
     public void run() {
         Book book1 = new Book();
         book1.setId(101);
@@ -19,25 +22,64 @@ public class Runner {
         book2.view();
         book3.view();
         System.out.println("=======================================");
-
+        System.out.println("Creating books");
         Book[] books = createBookArray(7);
-        printBookArray(books);
-        inflation(books, 10.0);
-        printBookArray(books);
+        printBookArray();
+        System.out.println("Inflation");
+        inflation( 10.0);
+        printBookArray();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Search books by author: ");
+        printBooksByAuthor(sc.nextLine());
+        System.out.print("Search books by issuer: ");
+        printBooksByIssuer(sc.nextLine());
+        System.out.print("Search books issued after: ");
+        printBooksIssuedAfter(sc.nextInt());
+
     }
     public Book[] createBookArray(int howMuch) {
-        Book[] books = new Book[howMuch];
+        books = new Book[howMuch];
         for (int i = 0; i < howMuch; i++) {
-            books[i] = new Book((i+1), "Book #" + i, "", "", "2020", (100 * i + i),
+            books[i] = new Book((i+1), "Book #" + i, "Author #" + i, "Issuer_" + i, "2020", (100 * i + i),
                     200 * i + 10*i + i + (double)i/5);
         }
         return books;
     }
-    public static void printBookArray (Book[] books) {
+    public void printBookArray () {
         for(Book b : books) {b.view();}
     }
-    public static void inflation (Book[] books, double i) {
+    public void inflation (double i) {
         for(Book b : books) {b.setPrice((1 + i/100) * b.getPrice());}
+    }
+    public void printBooksByAuthor(String author) {
+        boolean found = false;
+        for(Book b : books) {
+            if (b.getAuthor().equals(author)) {
+                found = true;
+                b.view();
+            }
+        }
+        if (!found) {System.out.println("Books not found");}
+    }
+    public void printBooksByIssuer(String issuer) {
+        boolean found = false;
+        for(Book b : books) {
+            if (b.getIssuer().equals(issuer)) {
+                found = true;
+                b.view();
+            }
+        }
+        if (!found) {System.out.println("Books not found");}
+    }
+    public void printBooksIssuedAfter(int year) {
+        boolean found = false;
+        for(Book b : books) {
+            if (Integer.parseInt(b.getYear()) > year) {
+                found = true;
+                b.view();
+            }
+        }
+        if (!found) {System.out.println("Books not found");}
     }
 
     public static void main(String[] args) {
