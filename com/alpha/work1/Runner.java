@@ -36,6 +36,8 @@ public class Runner {
         System.out.print("Search books issued after: ");
         printBooksIssuedAfter(sc.nextInt());
 
+        System.out.print("How much books created: " + Book.getBooksCounter());
+
     }
     public Book[] createBookArray(int howMuch) {
         books = new Book[howMuch];

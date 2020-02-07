@@ -8,6 +8,8 @@ public class Book {
     private String year;
     private Integer pages;
     private Double price;
+    private static int booksCounter = 0;
+    public static int getBooksCounter() {return booksCounter;}
     public void setId(Integer id) {this.id = id;}
     public void setName(String name) {this.name = name;}
     public void setAuthor(String author) {this.author = author;}
@@ -27,7 +29,9 @@ public class Book {
                 "' in " + getYear() + ", " + getPages() + " pages, price is " +  String.format("%.2f%n", this.price);
     }
     public void view() {System.out.println(this);}
-    public Book() {this(-1, "", "", "", "", -1, -1);}
+    public Book() {
+        this(-1, "", "", "", "", -1, -1);
+    }
     public Book (int id, String name, String author, String issuer, String year, int pages, double price) {
         this.setId(id);
         this.setName(name);
@@ -36,6 +40,7 @@ public class Book {
         this.setYear(year);
         this.setPages(pages);
         this.setPrice(price);
+        booksCounter++;
     }
     public Book (String name, String author, String issuer, String year, int pages) {
         this(0, name, author, issuer, year, pages, 0);
