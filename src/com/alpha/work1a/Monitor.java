@@ -25,8 +25,7 @@ public class Monitor extends Device {
     }
     @Override
     public String toString() {
-        return "class=Monitor: serialNumber=" + this.getSerialNumber() +  ", manufacturer=" + this.getManufacturer() +
-                ", price=" + this.getPrice() + ", X=" + getResolutionX() + ", Y=" + getResolutionY();
+        return super.toString() + ", X=" + getResolutionX() + ", Y=" + getResolutionY();
     }
     @Override
     public boolean equals(Object obj) {
@@ -39,12 +38,7 @@ public class Monitor extends Device {
 
     @Override
     public int hashCode() {
-        int result = 17;
-        result = 31 * result + getSerialNumber().hashCode();
-        result = 31 * result + getManufacturer().hashCode();
-        result = 31 * result + ("" + getPrice()).hashCode();
-        result = 31 * result + resolutionX;
-        result = 31 * result + resolutionY;
-        return result;
+        return 31 * (31 * (31 * (31 * (31 * 17 + getSerialNumber().hashCode()) + getManufacturer().hashCode()) +
+                (int)Math.round(getPrice())) + resolutionX) + resolutionY;
     }
 }

@@ -17,8 +17,7 @@ public class EthernetAdapter extends Device {
     }
     @Override
     public String toString() {
-        return "class=EthernetAdapter: serialNumber=" + this.getSerialNumber() +  ", manufacturer=" +
-                this.getManufacturer() + ", price=" + this.getPrice() + ", speed=" + getSpeed() + ", mac=" + getMac();
+        return super.toString() + ", speed=" + getSpeed() + ", mac=" + getMac();
     }
 
     @Override
@@ -32,12 +31,7 @@ public class EthernetAdapter extends Device {
 
     @Override
     public int hashCode() {
-        int result = 17;
-        result = 31 * result + getSerialNumber().hashCode();
-        result = 31 * result + getManufacturer().hashCode();
-        result = 31 * result + ("" + getPrice()).hashCode();
-        result = 31 * result + speed;
-        result = 31 * result + mac.hashCode();
-        return result;
+        return 31 * (31 * (31 * (31 * (31 * 17 + getSerialNumber().hashCode()) + getManufacturer().hashCode()) +
+                (int)Math.round(getPrice())) + speed) + mac.hashCode();
     }
 }
