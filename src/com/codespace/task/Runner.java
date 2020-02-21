@@ -1,7 +1,9 @@
 package com.codespace.task;
 
+import java.util.Arrays;
+
 public class Runner {
-    public void run(){
+    public void run() throws CloneNotSupportedException {
         Shape[] shapes = new Shape[9];
         shapes[0] = new Rectangle(1.1,2.2, "Red");
         shapes[1] = new Rectangle(3.5,5.7, "Blue");
@@ -19,6 +21,23 @@ public class Runner {
         System.out.println("Sum of Circle areas: " + sumSpecificArea(shapes, "Circle"));
         System.out.println("Sum of Rectangle areas: " + sumSpecificArea(shapes, "Rectangle"));
         System.out.println("Sum of Triangle areas: " + sumSpecificArea(shapes, "Triangle"));
+
+        System.out.println("Comparing Rectangles 1 vs 2: " + shapes[0].compareTo(shapes[1]));
+        System.out.println("Comparing Rectangles 4 vs 3: " + shapes[3].compareTo(shapes[2]));
+
+        System.out.println("Sorting shapes");
+        Arrays.sort(shapes);
+        showShapes(shapes);
+
+        System.out.println("Sorting shapes using comparator");
+        Arrays.sort(shapes, new MyComparatorColor());
+        showShapes(shapes);
+
+        System.out.println("Cloning");
+        Shape shapeClone = shapes[0].clone();
+        shapeClone.draw();
+        shapes[0].draw();
+
     }
     public void showShapes(Shape[] shapes) {
         for (Shape s : shapes) {
