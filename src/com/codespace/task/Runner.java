@@ -29,12 +29,12 @@ public class Runner {
         Arrays.sort(shapes);
         showShapes(shapes);
 
-        System.out.println("Sorting shapes using comparator");
-        Arrays.sort(shapes, new MyComparatorColor());
-        showShapes(shapes);
+        //System.out.println("Sorting shapes using comparator");
+        //Arrays.sort(shapes, new MyComparatorColor());
+        //showShapes(shapes);
 
         System.out.println("Cloning");
-        Shape shapeClone = shapes[0].clone();
+        Shape shapeClone = (Shape)shapes[0].clone();
         shapeClone.draw();
         shapes[0].draw();
 
